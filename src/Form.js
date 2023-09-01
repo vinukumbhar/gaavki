@@ -9,6 +9,15 @@ const Form = () => {
   const [division, setDivision] = useState('');
   const [rollNo, setRollNo] = useState('');
 
+  const resetForm = () => {
+    setName('');
+    setEmail('');
+    setPhone('');
+    setCName('');
+    setDivision('');
+    setRollNo('');
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -23,7 +32,10 @@ const Form = () => {
 
     // Assuming the response from PHP includes the certificate URL or data
     const data = await response.json();
-    console.log(data);
+    if(data.certificate_url) {
+      alert('Sent Successfully!');
+      
+    }
   };
 
   return (
